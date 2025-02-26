@@ -29,8 +29,7 @@ public class ActorController
     private final ActorService actorService;
 
     @Autowired
-    public ActorController(ActorRepository actorRepository, ActorService actorService)
-    {
+    public ActorController(ActorRepository actorRepository, ActorService actorService) {
         this.actorRepository = actorRepository;
         this.actorService = actorService;
     }
