@@ -17,11 +17,11 @@ public class Actor {
     @Column(name="actor_id")
     private Short id;
 
-    @Setter
+    @Setter(AccessLevel.PUBLIC)
     @Column(name="first_name")
     private String firstName;
 
-    @Setter
+    @Setter(AccessLevel.PUBLIC)
     @Column(name="last_name")
     private String lastName;
 
