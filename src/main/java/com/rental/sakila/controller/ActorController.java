@@ -3,11 +3,8 @@ package com.rental.sakila.controller;
 import com.rental.sakila.dto.request.ActorRequest;
 import com.rental.sakila.dto.request.ActorValidation;
 import com.rental.sakila.dto.response.ActorResponse;
-import com.rental.sakila.model.Actor;
-import com.rental.sakila.repository.ActorRepository;
 import com.rental.sakila.service.ActorService;
-import jakarta.el.PropertyNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,17 +19,11 @@ import java.util.Optional;
  */
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(path = "/api/sakila/actors")
 public class ActorController
 {
-    private final ActorRepository actorRepository;
     private final ActorService actorService;
-
-    @Autowired
-    public ActorController(ActorRepository actorRepository, ActorService actorService) {
-        this.actorRepository = actorRepository;
-        this.actorService = actorService;
-    }
 
     /* GET List */
     @GetMapping

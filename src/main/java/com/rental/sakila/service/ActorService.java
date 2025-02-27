@@ -1,12 +1,10 @@
 package com.rental.sakila.service;
 
-import com.rental.sakila.dto.response.ActorResponse;
 import com.rental.sakila.exception.ActorNotFoundException;
-import com.rental.sakila.model.Actor;
+import com.rental.sakila.entity.Actor;
 import com.rental.sakila.repository.ActorRepository;
-import jakarta.el.PropertyNotFoundException;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.apachecommons.CommonsLog;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,19 +13,16 @@ import java.util.Optional;
 
 @CommonsLog
 @Service
-public class ActorService {
+@RequiredArgsConstructor
+public class ActorService
+{
     private final ActorRepository actorRepository;
-
-    @Autowired
-    public ActorService(ActorRepository actorRepository) {
-        this.actorRepository = actorRepository;
-    }
 
     public List<Actor> getActorList(Optional<String> filterName)
     {
-        List<Actor> listOfActors = filterName.map(actorRepository::findByFullNameContainingIgnoreCase).orElseGet(actorRepository::findAll);
+        List<Actor> actorList = filterName.map(actorRepository::findByFullNameContainingIgnoreCase).orElseGet(actorRepository::findAll);
 
-        return listOfActors;
+        return actorList;
     }
 
     public Actor getActor(Short id)
@@ -44,11 +39,11 @@ public class ActorService {
         actor.setFirstName(firstName);
         actor.setLastName(lastName);
 
-        Actor savedActor = actorRepository.save(actor);
+        Actor actorSaved = actorRepository.save(actor);
 
         log.info(String.format("Actor Created: %s", actor.getId()));
 
-        return savedActor;
+        return actorSaved;
     }
 
     public Actor updateActor(Short id, Optional<String> firstName, Optional<String> lastName)
@@ -58,11 +53,11 @@ public class ActorService {
 
         firstName.ifPresent(actor::setFirstName);
         lastName.ifPresent(actor::setLastName);
-        Actor updatedActor = actorRepository.save(actor);
+        Actor actorUpdated = actorRepository.save(actor);
 
         log.info(String.format("Actor Updated: %s", actor.getId()));
 
-        return updatedActor;
+        return actorUpdated;
     }
 
     public void deleteActor(Short id)

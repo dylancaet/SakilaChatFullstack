@@ -1,10 +1,8 @@
 package com.rental.sakila.dto.response;
 
-import com.rental.sakila.model.Actor;
+import com.rental.sakila.entity.Actor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-
-import java.util.List;
 
 @AllArgsConstructor
 @Getter
