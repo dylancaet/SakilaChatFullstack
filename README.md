@@ -15,3 +15,24 @@
 - Light Endpoint Security (*API Key, no roles*)
 - Containerization
 ...
+
+#### Folder Structure
+```
+./counter
+├── core
+│   └── lib
+│       ├── adapters
+│       │   └── redux
+│       ├── entities
+│       ├── frameworks
+│       └── useCases
+├── native
+│   └── src
+│       ├── components
+│       └── stylesheets
+└── web
+    └── src
+        ├── assets
+        ├── components
+        └── stylesheets
+```
