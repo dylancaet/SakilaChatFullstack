@@ -6,7 +6,8 @@ public final class Route
 
     public final static class Store
     {
-        public static final String BASE_STORE   = BASE_API+"/store";
-        public static final String GET_STORE    = BASE_STORE+"/{id}";
+        public static final String BASE_STORE       = BASE_API+"/store";
+        public static final String GET_STORE_LIST   = BASE_STORE+"/list";
+        public static final String GET_STORE        = BASE_STORE+"/{id}";
     }
 }
