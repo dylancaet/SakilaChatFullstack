@@ -1,11 +1,15 @@
 package com.rental.sakila.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @Getter
 @Table(name = "store")
+@AllArgsConstructor
 @Entity
+@EqualsAndHashCode
 public class Store
 {
     @Id
