@@ -1,4 +1,4 @@
-package com.rental.sakila.data.service;
+package com.rental.sakila.service;
 
 import com.rental.sakila.dto.reponse.StoreResponse;
 import com.rental.sakila.entity.Store;

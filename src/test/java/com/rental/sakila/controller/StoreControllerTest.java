@@ -1,4 +1,4 @@
-package com.rental.sakila.data.controller;
+package com.rental.sakila.controller;
 
 import com.rental.sakila.controller.StoreController;
 import com.rental.sakila.data.DataSupplier;
