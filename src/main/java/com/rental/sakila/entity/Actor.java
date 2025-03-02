@@ -1,9 +1,7 @@
 package com.rental.sakila.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Formula;
 
 import java.util.List;
@@ -11,10 +9,14 @@ import java.util.List;
 @Entity
 @Table(name = "actor")
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 public class Actor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="actor_id")
+    @NonNull
     private Short id;
 
     @Setter(AccessLevel.PUBLIC)
@@ -34,5 +36,19 @@ public class Actor {
 
     public String getFullName() {
         return firstName + ' ' + lastName;
+    }
+
+    public boolean isValid()
+    {
+        if (firstName.length() <= 0)
+            return false;
+
+        if (lastName.length() <= 0)
+            return false;
+
+        if (!fullName.equals(getFullName()))
+            return false;
+
+        return true;
     }
 }

@@ -2,10 +2,12 @@ package com.rental.sakila.dto.response;
 
 import com.rental.sakila.entity.Actor;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
+@EqualsAndHashCode
 public class ActorResponse {
     private final Short id;
     private final String firstName;
