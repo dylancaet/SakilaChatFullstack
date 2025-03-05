@@ -17,4 +17,10 @@ public final class Route
         public static final String GET_FILM_LIST    = BASE_FILM+"/list";
         public static final String GET_FILM         = BASE_FILM+"/{id}";
     }
+
+    public final static class WebSocket
+    {
+        public static final String WS_ROOT          = "/ws";
+        public static final String TEXT_MESSAGE     = WS_ROOT+"/message";
+    }
 }
