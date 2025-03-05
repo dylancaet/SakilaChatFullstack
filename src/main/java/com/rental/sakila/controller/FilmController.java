@@ -7,7 +7,6 @@ import com.rental.sakila.dto.reponse.StoreResponse;
 import com.rental.sakila.entity.Film;
 import com.rental.sakila.entity.Store;
 import com.rental.sakila.service.FilmService;
-import com.rental.sakila.service.StoreService;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
