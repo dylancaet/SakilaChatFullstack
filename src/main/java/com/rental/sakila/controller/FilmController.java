@@ -24,7 +24,7 @@ public class FilmController
 
     /* GET Individual */
     @CrossOrigin
-    @GetMapping(Route.Film.GET_FILM)
+    @GetMapping(Route.API.Film.GET_FILM)
     public FilmResponse getFilm(@PathVariable Short id)
     {
         Film film = service.getFilm(id);
@@ -33,7 +33,7 @@ public class FilmController
 
     /* GET List */
     @CrossOrigin
-    @GetMapping(Route.Film.GET_FILM_LIST)
+    @GetMapping(Route.API.Film.GET_FILM_LIST)
     public PaginatedFilmResponse getFilmList(@RequestParam(defaultValue = "0") @PositiveOrZero int page)
     {
         Page<Film> filmList = service.getFilmList(page);

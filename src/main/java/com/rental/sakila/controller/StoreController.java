@@ -31,7 +31,7 @@ public class StoreController
 
     /* GET Individual */
     @CrossOrigin
-    @GetMapping(Route.Store.GET_STORE)
+    @GetMapping(Route.API.Store.GET_STORE)
     public StoreResponse getStore(@PathVariable Byte id)
     {
         Store store = service.getStore(id);
@@ -40,7 +40,7 @@ public class StoreController
 
     /* GET List */
     @CrossOrigin
-    @GetMapping(Route.Store.GET_STORE_LIST)
+    @GetMapping(Route.API.Store.GET_STORE_LIST)
     public List<StoreResponse> getStoreList()
     {
         List<StoreResponse> storeList = service.getStoreList().stream().map(StoreResponse::from).toList();
