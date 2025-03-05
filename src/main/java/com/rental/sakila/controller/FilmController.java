@@ -2,12 +2,15 @@ package com.rental.sakila.controller;
 
 import com.rental.sakila.Route;
 import com.rental.sakila.dto.reponse.FilmResponse;
+import com.rental.sakila.dto.reponse.PaginatedFilmResponse;
 import com.rental.sakila.dto.reponse.StoreResponse;
 import com.rental.sakila.entity.Film;
 import com.rental.sakila.entity.Store;
 import com.rental.sakila.service.FilmService;
 import com.rental.sakila.service.StoreService;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import org.testng.annotations.Optional;
 
@@ -32,11 +35,10 @@ public class FilmController
     /* GET List */
     @CrossOrigin
     @GetMapping(Route.API.Film.GET_FILM_LIST)
-    public List<FilmResponse> getFilmList(@RequestParam(defaultValue = "0") int page)
+    public PaginatedFilmResponse getFilmList(@RequestParam(defaultValue = "0") @PositiveOrZero int page)
     {
-        List<FilmResponse> filmList = service.getFilmList(page)
-                            .stream().map(FilmResponse::from).toList();
-        return filmList;
+        Page<Film> filmList = service.getFilmList(page);
+        return PaginatedFilmResponse.from(filmList);
     }
 
 }
