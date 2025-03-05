@@ -22,7 +22,7 @@ public class FilmController
 
     /* GET Individual */
     @CrossOrigin
-    @GetMapping(Route.Film.GET_FILM)
+    @GetMapping(Route.API.Film.GET_FILM)
     public FilmResponse getFilm(@PathVariable Short id)
     {
         Film film = service.getFilm(id);
@@ -31,7 +31,7 @@ public class FilmController
 
     /* GET List */
     @CrossOrigin
-    @GetMapping(Route.Film.GET_FILM_LIST)
+    @GetMapping(Route.API.Film.GET_FILM_LIST)
     public List<FilmResponse> getFilmList(@RequestParam(defaultValue = "0") int page)
     {
         List<FilmResponse> filmList = service.getFilmList(page)

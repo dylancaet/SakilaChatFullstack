@@ -25,7 +25,9 @@ public class WebSocketMessageHandler extends TextWebSocketHandler
     protected void handleTextMessage(@NonNull WebSocketSession session, @NonNull TextMessage message) throws Exception
     {
         String payload = message.getPayload();
-        session.sendMessage(new TextMessage("Received: " + payload));
+//        session.sendMessage(new TextMessage("Received: " + payload));
+
+        broadcastAll(String.format("%s: %s", session.getRemoteAddress(), payload));
     }
 
     @Override
@@ -44,7 +46,7 @@ public class WebSocketMessageHandler extends TextWebSocketHandler
         log.info(String.format("WS: Connection %s closed", session.getRemoteAddress()));
     }
     
-    public void broadcast(String message)
+    public void broadcastAll(String message)
     {
         for (WebSocketSession session : sessions) {
             try {
