@@ -2,16 +2,21 @@ package com.rental.sakila.entity;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @Getter
 @Table(name="address")
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 @Entity
-public class Address
+public class Address implements Serializable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

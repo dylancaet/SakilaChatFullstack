@@ -1,46 +1,29 @@
 package com.rental.sakila.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Positive;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import java.time.Year;
-
-/*
-    name
-    release year
-    original language
-    rental rate
-    replacement cost
-
-
-    total inventory sold
-    total customers sold
-    stores { [
-        country,
-        city,
-        inventory_received,
-        inventory_sold
-    ] }
- */
-
-@Entity
-@Table(name = "film")
 @Getter
-public class Film {
+@Table(name = "film")
+@Entity
+@EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
+public class Film
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="film_id")
+    @Column(name = "film_id")
+    @Positive
     private Short id;
 
-    @Column(name="title")
+    @Column(name = "title")
     private String title;
 
-    @Column(name="release_year")
-    private Year releaseYear;
-
-    @Column(name="rental_rate")
-    private float rentalRate;
-
-    @Column(name="price")
+    @Column(name = "replacement_cost")
     private float price;
 }
