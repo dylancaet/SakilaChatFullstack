@@ -13,9 +13,10 @@ public class FilmResponse
     private final Short id;
     private final String title;
     private final float price;
+    private final String description;
 
     public static FilmResponse from(Film film)
     {
-        return new FilmResponse(film.getId(), film.getTitle(), film.getPrice());
+        return new FilmResponse(film.getId(), film.getTitle(), film.getPrice(), film.getDescription());
     }
 }
