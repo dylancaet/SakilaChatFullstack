@@ -11,7 +11,7 @@ import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
-import org.testng.annotations.Optional;
+import java.util.Optional;
 
 import java.util.List;
 
@@ -34,9 +34,10 @@ public class FilmController
     /* GET List */
     @CrossOrigin
     @GetMapping(Route.API.Film.GET_FILM_LIST)
-    public PaginatedFilmResponse getFilmList(@RequestParam(defaultValue = "0") @PositiveOrZero int page)
+    public PaginatedFilmResponse getFilmList(@RequestParam(defaultValue = "0") @PositiveOrZero int page,
+                                             @RequestParam(required = false) Optional<String> title)
     {
-        Page<Film> filmList = service.getFilmList(page);
+        Page<Film> filmList = service.getFilmList(page, title);
         return PaginatedFilmResponse.from(filmList);
     }
 
