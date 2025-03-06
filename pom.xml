@@ -101,6 +101,7 @@
 				<configuration>
 					<excludes>
 						<exclude>**/dto/**/*.*</exclude>
+						<exclude>**/route/*.*</exclude>
 					</excludes>
 				</configuration>
 				<executions>

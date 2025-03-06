@@ -1,12 +1,12 @@
 package com.rental.sakila.entity;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.testng.annotations.Optional;
 
+@Setter
 @Getter
 @Table(name = "film")
 @Entity
@@ -29,4 +29,8 @@ public class Film
 
     @Column(name = "description")
     private String description;
+
+    @Nullable
+    @Column(name = "language_id")
+    private Byte languageId;
 }

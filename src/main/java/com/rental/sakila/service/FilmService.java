@@ -58,7 +58,21 @@ public class FilmService
             filmPage = repository.findAll(pageable);
         }
 
-
         return filmPage;
+    }
+
+    public Film createFilm(String title)
+    {
+        int languageId = 1;
+
+        Film film = new Film();
+        film.setTitle(title);
+        film.setLanguageId((byte)languageId);
+
+        Film filmSaved = repository.save(film);
+
+        log.info(String.format("Film Created: %s", film.getId()));
+
+        return filmSaved;
     }
 }

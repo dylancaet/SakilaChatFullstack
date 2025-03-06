@@ -1,19 +1,18 @@
 package com.rental.sakila.controller;
 
-import com.rental.sakila.Route;
+import com.rental.sakila.dto.request.FilmRequest;
+import com.rental.sakila.route.Route;
 import com.rental.sakila.dto.reponse.FilmResponse;
 import com.rental.sakila.dto.reponse.PaginatedFilmResponse;
-import com.rental.sakila.dto.reponse.StoreResponse;
+import com.rental.sakila.dto.request.RequestValidation;
 import com.rental.sakila.entity.Film;
-import com.rental.sakila.entity.Store;
 import com.rental.sakila.service.FilmService;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
-
-import java.util.List;
 
 
 @AllArgsConstructor
@@ -41,4 +40,11 @@ public class FilmController
         return PaginatedFilmResponse.from(filmList);
     }
 
+    /* POST Create Film */
+    @PostMapping(Route.API.Film.POST_FILM)
+    public FilmResponse createFilm(@Validated(RequestValidation.Create.class) @RequestBody FilmRequest request)
+    {
+        var filmCreated = service.createFilm(request.getTitle());
+        return FilmResponse.from(filmCreated);
+    }
 }
