@@ -1,7 +1,10 @@
 package com.rental.sakila.dto.request;
 
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Getter;
+import org.springframework.lang.Nullable;
 
 @Getter
 public class FilmRequest
@@ -11,4 +14,9 @@ public class FilmRequest
 
     @NotNull(groups = RequestValidation.Create.class)
     private String title;
+
+    private String description;
+
+    @PositiveOrZero(groups = {RequestValidation.Create.class, RequestValidation.Update.class})
+    private float price;
 }

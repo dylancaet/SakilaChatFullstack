@@ -18,8 +18,9 @@ public final class Route
             public static final String BASE_FILM        = API_ROOT+"/film";
             public static final String GET_FILM_LIST    = BASE_FILM+"/list";
             public static final String GET_FILM         = BASE_FILM+"/{id}";
-            public static final String POST_FILM        = BASE_FILM;
             public static final String DELETE_FILM      = BASE_FILM+"/{id}";
+            public static final String POST_FILM        = BASE_FILM;
+            public static final String PATCH_FILM       = BASE_FILM;
         }
     }
 

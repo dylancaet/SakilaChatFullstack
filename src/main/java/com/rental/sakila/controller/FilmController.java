@@ -21,7 +21,7 @@ public class FilmController
 {
     private final FilmService service;
 
-    /* GET Individual */
+    /* GET Single */
     @CrossOrigin
     @GetMapping(Route.API.Film.GET_FILM)
     public FilmResponse getFilm(@PathVariable Short id)
@@ -40,12 +40,27 @@ public class FilmController
         return PaginatedFilmResponse.from(filmList);
     }
 
-    /* POST Create Film */
+    /* POST */
     @PostMapping(Route.API.Film.POST_FILM)
     public FilmResponse createFilm(@Validated(RequestValidation.Create.class) @RequestBody FilmRequest request)
     {
-        var filmCreated = service.createFilm(request.getTitle());
+        var filmCreated = service.createFilm(request.getTitle(),
+                        Optional.ofNullable(request.getDescription()),
+                        Optional.of(request.getPrice()));
+
         return FilmResponse.from(filmCreated);
+    }
+
+    /* PATCH */
+    @PatchMapping(Route.API.Film.PATCH_FILM)
+    public FilmResponse updateActor(@Validated(RequestValidation.Update.class) @RequestBody FilmRequest request)
+    {
+        var filmUpdated = service.updateFilm(request.getId(),
+                        Optional.ofNullable(request.getTitle()),
+                        Optional.ofNullable(request.getDescription()),
+                        Optional.of(request.getPrice()));
+
+        return FilmResponse.from(filmUpdated);
     }
 
     /* DELETE */
