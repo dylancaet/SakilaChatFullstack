@@ -26,4 +26,7 @@ public class Film
 
     @Column(name = "replacement_cost")
     private float price;
+
+    @Column(name = "description")
+    private String description;
 }
