@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @CommonsLog
@@ -42,12 +43,21 @@ public class FilmService
      * @param   pageNumber  the page to retrieve items from.
      * @return a {@link Page<Film>} containing maximum 50 {@link Film} entries.
      */
-    public Page<Film> getFilmList(int pageNumber)
+    public Page<Film> getFilmList(int pageNumber, Optional<String> title)
     {
         int pageSize = 50;
 
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
-        Page<Film> filmPage = repository.findAll(pageable);
+
+        Page<Film> filmPage;
+
+        if (title.isPresent()) {
+            filmPage = repository.findByTitleContainingIgnoreCase(title.get(), pageable);
+        }
+        else {
+            filmPage = repository.findAll(pageable);
+        }
+
 
         return filmPage;
     }
