@@ -47,4 +47,11 @@ public class FilmController
         var filmCreated = service.createFilm(request.getTitle());
         return FilmResponse.from(filmCreated);
     }
+
+    /* DELETE */
+    @DeleteMapping(Route.API.Film.DELETE_FILM)
+    public void deleteFilm(@Validated(RequestValidation.Delete.class) @PathVariable Short id)
+    {
+        service.deleteFilm(id);
+    }
 }

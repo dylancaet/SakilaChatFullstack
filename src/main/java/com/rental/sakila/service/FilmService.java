@@ -61,6 +61,12 @@ public class FilmService
         return filmPage;
     }
 
+    /**
+     * Creates a film entry from a title, in the database.
+     *
+     * @param   title  the title of the film.
+     * @return the resulting {@link Film} entry created.
+     */
     public Film createFilm(String title)
     {
         int languageId = 1;
@@ -74,5 +80,22 @@ public class FilmService
         log.info(String.format("Film Created: %s", film.getId()));
 
         return filmSaved;
+    }
+
+
+    /**
+     *  Deletes a {@link Film} entry with the specified id, else throws an exception.
+     *
+     * @param   id      the id to find.
+     * @exception ItemNotFoundException if the <code>id</code> is not found
+     */
+    public void deleteFilm(Short id)
+    {
+        Film film = repository.findById(id)
+                .orElseThrow(() -> new ItemNotFoundException(String.format("ERR: Film %s not found", id)));
+
+        repository.delete(film);
+
+        log.info(String.format("Actor Deleted: %s", film.getId()));
     }
 }
