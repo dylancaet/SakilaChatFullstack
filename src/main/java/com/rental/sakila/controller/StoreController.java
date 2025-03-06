@@ -1,6 +1,6 @@
 package com.rental.sakila.controller;
 
-import com.rental.sakila.Route;
+import com.rental.sakila.route.Route;
 import com.rental.sakila.dto.reponse.StoreResponse;
 import com.rental.sakila.entity.Store;
 import com.rental.sakila.service.StoreService;
