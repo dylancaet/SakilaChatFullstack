@@ -11,6 +11,7 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 @CommonsLog
@@ -20,6 +21,7 @@ public class WebSocketMessageHandler extends TextWebSocketHandler
         are implemented by making a fresh copy of the underlying array.
     */
     private final List<WebSocketSession> sessions = new CopyOnWriteArrayList<WebSocketSession>();
+    private final Random random = new Random();
 
     @Override
     protected void handleTextMessage(@NonNull WebSocketSession session, @NonNull TextMessage message) throws Exception
@@ -27,7 +29,10 @@ public class WebSocketMessageHandler extends TextWebSocketHandler
         String payload = message.getPayload();
 //        session.sendMessage(new TextMessage("Received: " + payload));
 
-        broadcastAll(String.format("%s: %s", session.getRemoteAddress(), payload));
+        random.setSeed(stringToSeed(session.getId()));
+        int userName = random.nextInt(1000);
+
+        broadcastAll(String.format("%s: %s", userName, payload));
     }
 
     @Override
@@ -55,6 +60,17 @@ public class WebSocketMessageHandler extends TextWebSocketHandler
 
             }
         }
+    }
+
+    static long stringToSeed(String s) {
+        if (s == null) {
+            return 0;
+        }
+        long hash = 0;
+        for (char c : s.toCharArray()) {
+            hash = 31L*hash + c;
+        }
+        return hash;
     }
 }
 
