@@ -1,0 +1,19 @@
+
+.film-collection
+{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	justify-content: center;
+	align-items: center;
+}
+
+.load-button {
+	margin: 0 auto;
+	display: flex;
+}
+
+.film-search-container {
+	margin: 0 auto;
+	display: flex;
+}
