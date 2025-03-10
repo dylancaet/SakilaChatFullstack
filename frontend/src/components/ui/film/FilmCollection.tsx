@@ -22,7 +22,7 @@ const FilmCollection = () =>
     const [paginatedItems, setPaginatedItems] = useState<PaginatedResult>();
 
     const fetchFilms = () => {
-        fetch(`http://localhost:8080/api/sakila/film/list?page=${page}`)
+        fetch(import.meta.env.VITE_SAKILA_API+`/film/list?page=${page}`)
             .then(res => res.json())
             .then((d: PaginatedFilms) => {
                 setFilms([...films].concat(d.films));
