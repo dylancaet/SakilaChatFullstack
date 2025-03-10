@@ -1,0 +1,24 @@
+
+.spinner-container
+{
+    width: 100%;
+    height: 100%;
+    background-color: #beb8e1;
+    overflow: hidden;
+}
+
+.spinner-track {
+    display: flex;
+}
+
+.spinner-scroll
+{
+    animation: scroll-left 15s linear infinite;
+    width: max-content;
+}
+
+@keyframes scroll-left
+{
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}

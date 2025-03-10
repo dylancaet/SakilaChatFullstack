@@ -1,0 +1,41 @@
+
+.film-card
+{
+	max-width: 200px;
+	max-height: 600px;
+	margin: 5px;
+	border: 1px solid gray;
+	background-color: #FFF8E8;
+
+	&:hover {
+		border: 1px solid black;
+		transform: scale(1.05);
+		transition-duration: 300ms;
+	}
+
+	.film-card-info {
+	}
+
+	.fake-poster {
+		width: 200px;
+		height: 300px;
+	}
+
+	p {
+		width: 100%;
+		max-width: 200px;
+		font-family: 'Montserrat', sans-serif;
+		text-align: right;
+	}
+
+	img {
+		max-width: 100%;
+		max-height: 100%;
+	}
+}
+
+.orange { background-color: #f46036 }
+.cadet { background-color: #2E294E }
+.yellow { background-color: #FFBA08 }
+.pantone { background-color: #e71d36 }
+.latte { background-color: #FFF8E8 }

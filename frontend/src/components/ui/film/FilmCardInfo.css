@@ -1,0 +1,44 @@
+
+.film-card-info-container
+{
+    width: 600px;
+    height: auto;
+    position: fixed;
+    background-color: #ffcc93;
+
+    z-index: 1;
+
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    border: black solid 1px;
+}
+
+.film-card-info-image {
+    width: 500px;
+    height: auto;
+    overflow: hidden;
+    margin: 5px;
+}
+
+.film-card-info-image img
+{
+    max-height: 100%;
+    max-width: 100%;
+    height:auto;
+    object-fit: contain;
+}
+
+.film-card-info-details h2
+{
+    margin: 5px;
+    text-align: center;
+}
+
+.film-card-info-details p
+{
+    margin: 10px;
+}
