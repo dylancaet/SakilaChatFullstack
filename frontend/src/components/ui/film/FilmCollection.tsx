@@ -53,11 +53,15 @@ const FilmCollection = () =>
             });
     }
 
-    const loadButton = paginatedItems!.page+1 !== paginatedItems?.totalPages ? (
-        <button className="load-button" onClick={fetchFilms}>
-            load more
-        </button>
-    ) : ''
+    let loadButton = null;
+
+    if (paginatedItems?.totalPages) {
+        loadButton = paginatedItems?.page !== paginatedItems?.totalPages ? (
+            <button className="load-button" onClick={fetchFilms}>
+                load more
+            </button>
+        ) : ''
+    }
 
 
     const filmCards = films.map(f => <FilmCard key={f.id} film={f} clickable={true}/>)
