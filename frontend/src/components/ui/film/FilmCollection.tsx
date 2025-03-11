@@ -3,6 +3,7 @@ import FilmCard from "./FilmCard.tsx";
 import "./FilmCollection.css";
 import {useEffect, useState} from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface FilmCollectionProps
 {
     films: Film[];
@@ -53,7 +54,7 @@ const FilmCollection = () =>
             });
     }
 
-    const loadButton = paginatedItems?.page+1 !== paginatedItems?.totalPages ? (
+    const loadButton = paginatedItems!.page+1 !== paginatedItems?.totalPages ? (
         <button className="load-button" onClick={fetchFilms}>
             load more
         </button>
