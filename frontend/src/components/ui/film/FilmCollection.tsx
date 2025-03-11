@@ -44,7 +44,7 @@ const FilmCollection = () =>
             return;
         }
 
-        fetch(`http://localhost:8080/api/sakila/film/list?0&title=${userFilter}`)
+        fetch(import.meta.env.VITE_SAKILA_API+`/film/list?title=${userFilter}`)
             .then(res => res.json())
             .then((d: PaginatedFilms) => {
                 setFilms(d.films);
