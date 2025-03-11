@@ -3,11 +3,10 @@ import FilmCard from "./FilmCard.tsx";
 import "./FilmCollection.css";
 import {useEffect, useState} from "react";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-interface FilmCollectionProps
-{
-    films: Film[];
-}
+// interface FilmCollectionProps
+// {
+//     films: Film[];
+// }
 
 interface PaginatedResult
 {
