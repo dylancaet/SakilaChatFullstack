@@ -3,6 +3,7 @@ import FilmCard from "./FilmCard.tsx";
 import "./FilmCollection.css";
 import {useEffect, useState} from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface FilmCollectionProps
 {
     films: Film[];
@@ -22,7 +23,7 @@ const FilmCollection = () =>
     const [paginatedItems, setPaginatedItems] = useState<PaginatedResult>();
 
     const fetchFilms = () => {
-        fetch(`http://localhost:8080/api/sakila/film/list?page=${page}`)
+        fetch(import.meta.env.VITE_SAKILA_API+`/film/list?page=${page}`)
             .then(res => res.json())
             .then((d: PaginatedFilms) => {
                 setFilms([...films].concat(d.films));
@@ -53,7 +54,7 @@ const FilmCollection = () =>
             });
     }
 
-    const loadButton = paginatedItems?.page+1 !== paginatedItems?.totalPages ? (
+    const loadButton = paginatedItems!.page+1 !== paginatedItems?.totalPages ? (
         <button className="load-button" onClick={fetchFilms}>
             load more
         </button>

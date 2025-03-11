@@ -7,7 +7,7 @@ export default function ChatBox()
     const [userMessage, setUserMessage] = useState("");
     const [messageHistory, setMessageHistory] = useState<string[]>([])
 
-    const WS_URL = "ws://127.0.0.1:8080/ws/message"
+    const WS_URL = import.meta.env.VITE_WS_URL+"/ws/message";
     const { readyState, sendMessage, lastMessage } = useWebSocket(
         WS_URL,
         {
