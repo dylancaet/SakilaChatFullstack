@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import useWebSocket, {ReadyState} from "react-use-websocket";
-import "./ChatBox.scss"
+import "./ChatBox.css"
 
 export default function ChatBox()
 {
