@@ -1,26 +1,26 @@
 package e2e.pages;
 
 import e2e.models.FilmCard;
-import lombok.Getter;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.WheelInput;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
 public class HomePage
 {
     private final WebDriver driver;
 
     private final By filmCardBy     = By.className("film-card");
     private final By loadButtonBy   = By.className("load-button");
+    private final By filterFormBy   = By.xpath("//form[@class='film-search-container']");
+    private final By filterInputBy  = By.xpath("//form[@class='film-search-container']//input");
 
 //    private ChatBox chatBox;
 //    private SearchFilter searchFilter;
@@ -59,11 +59,16 @@ public class HomePage
         new WebDriverWait(driver, Duration.ofMillis(1000)).until(ExpectedConditions.numberOfElementsToBeMoreThan(filmCardBy, filmCards.size()));
     }
 
-    public void scrollDown(int y)
+    public void enterFilter(String text)
     {
-        WheelInput.ScrollOrigin scrollOrigin = WheelInput.ScrollOrigin.fromViewport(10, 10);
-        new Actions(driver)
-                .scrollFromOrigin(scrollOrigin, 0, y)
-                .perform();
+        final var filterInput = driver.findElement(filterInputBy);
+        filterInput.sendKeys(text);
     }
+
+    public void submitFilter()
+    {
+        final var filterForm = driver.findElement(filterFormBy);
+        filterForm.submit();
+    }
+
 }

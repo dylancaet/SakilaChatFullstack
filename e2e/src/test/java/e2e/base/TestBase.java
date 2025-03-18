@@ -12,16 +12,16 @@ public class TestBase
 {
     private WebDriver driver;
 
-    public TestBase()
+    public TestBase(String called)
     {
+        System.out.println("Driver::Create "+called);
+
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
 
         var options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver();
-
-        System.out.println("Driver::constructor");
     }
 
     public void startSession()
@@ -32,6 +32,7 @@ public class TestBase
     public void endSession(Scenario scenario)
     {
         closeBrowser();
+        System.out.println("Driver::Exit " + scenario.getName());
     }
 
     public void gotoURL(String url)

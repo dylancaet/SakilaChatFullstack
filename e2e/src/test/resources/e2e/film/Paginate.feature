@@ -8,7 +8,6 @@ Feature: View more results
 		Then 50 film cards are displayed
 
 	Scenario: A user can load more items
-		When at the bottom of the scroll
 		When the user clicks the load more button
 		Then more or the same film cards are displayed
 

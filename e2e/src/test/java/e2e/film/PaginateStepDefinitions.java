@@ -3,10 +3,7 @@ package e2e.film;
 import e2e.base.TestBase;
 import e2e.models.FilmCard;
 import e2e.pages.HomePage;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.BeforeAll;
-import io.cucumber.java.Scenario;
+import io.cucumber.java.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -24,33 +21,25 @@ public class PaginateStepDefinitions
 
     private List<FilmCard> preResults;
 
-    @Before
+    @Before /* =BeforeScenario */
     public void beforeScenario(Scenario scenario)
     {
-        this.base = new TestBase();
+        this.base = new TestBase(scenario.getName());
         this.page = new HomePage(base.getDriver());
 
         base.startSession();
-        System.out.println("Before::"+scenario.getName());
     }
 
-    @After
+    @After /* =AfterScenario */
     public void afterScenario(Scenario scenario)
     {
-        base.endSession();
-        System.out.println("After::"+scenario.getName());
+        base.endSession(scenario);
     }
 
     @Given("the user is on {string}")
     public void the_user_is_on_string(String url)
     {
         base.gotoURL(url);
-    }
-
-    @When("at the bottom of the scroll")
-    public void at_the_bottom_of_the_scroll()
-    {
-        page.scrollDown(700);
     }
 
     @When("the user clicks the load more button")
@@ -78,7 +67,7 @@ public class PaginateStepDefinitions
 
         final var postResults = page.getFilmCards();
 
-        assertThat(postResults.size(), greaterThanOrEqualTo(postResults.size()));
+        assertThat(postResults.size(), greaterThanOrEqualTo(preResults.size()));
     }
 
 }
