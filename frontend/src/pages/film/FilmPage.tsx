@@ -8,8 +8,6 @@ const FilmPage = () =>
         <>
             <title>Sakila Film Chat</title>
 
-            <div className="film-page-gradient"/>
-
             <div className="film-page-container">
                 <div className="film-page-chatbox-container">
                     <ChatBox/>
@@ -25,6 +23,9 @@ const FilmPage = () =>
                     <FilmCollection/>
                 </div>
             </div>
+
+            <div className="film-page-halftone"/>
+            <div className="film-page-gradient"/>
         </>
     )
 }
