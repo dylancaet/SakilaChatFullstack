@@ -69,7 +69,6 @@ const FilmCollection = () =>
 
     return (
         <>
-            <title>Sakila Film Chat</title>
             <div className="film-search-container">
                 <form className="film-search-container" onSubmit={(e) => handleUserSearch(e)}>
                     <label>search</label>
