@@ -1,5 +1,6 @@
 package e2e.base;
 
+import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -28,7 +29,7 @@ public class TestBase
         launchBrowser();
     }
 
-    public void endSession()
+    public void endSession(Scenario scenario)
     {
         closeBrowser();
     }

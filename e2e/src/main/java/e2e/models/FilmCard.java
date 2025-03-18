@@ -5,21 +5,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 @Getter
-public class FilmCard
+public class FilmCard extends WebComponent
 {
-    private final WebElement element;
     private String title;
     private String priceText;
     private String imageUrl;
 
-    public FilmCard(WebElement element)
-    {
-        this.element = element;
-
-        initialise();
+    public FilmCard(WebElement element) {
+        super(element);
     }
 
-    private void initialise()
+    @Override
+    void initialise()
     {
         final var filmCardInfo = element.findElement(By.className("film-card-info"));
 
@@ -27,5 +24,4 @@ public class FilmCard
         priceText = filmCardInfo.findElement(By.tagName("p")).getText();
         imageUrl = element.findElement(By.tagName("img")).getAttribute("src");
     }
-
 }
