@@ -18,7 +18,7 @@ const ReadFilmPanel = () =>
         fetchFilms();
     }, [])
 
-    const filmRows = films.map(f => <tr key={f.id}><td>{f.id}</td><td>{f.title}</td><td>{f.description}</td><td>{f.price}</td></tr> )
+    const filmRows = films.map(f => <tr key={f.id}><td>{f.id}</td><td>{f.title}</td><td>{f.description}</td><td>£ {f.price}</td></tr> )
 
     return (
         <>
