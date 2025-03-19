@@ -11,7 +11,7 @@ const CreateFilm = () =>
         const description = formData.get('description');
         const price = formData.get('price');
 
-
+        /* Attempt to create film & handle response */
         await fetch(import.meta.env.VITE_SAKILA_API + `/film`, {
             method: "POST",
             headers: {
@@ -23,14 +23,11 @@ const CreateFilm = () =>
                 const resFilm: Film = await res.json();
                 setResponse(resFilm);
             }
-            else
+            else{
                 setResponse(undefined)
+            }
         })
     }
-
-    useEffect(() => {
-        console.log(response);
-    }, [response])
 
     return (
         <>
