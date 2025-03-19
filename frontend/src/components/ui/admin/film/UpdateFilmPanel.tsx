@@ -19,7 +19,7 @@ const UpdateFilmPanel = () =>
         if (dict.get("id") == null)
             return;
 
-        /* Attempt to create film & handle response */
+        /* Attempt to update film & handle response */
         await fetch(import.meta.env.VITE_SAKILA_API + `/film`, {
             method: "PATCH",
             headers: {
