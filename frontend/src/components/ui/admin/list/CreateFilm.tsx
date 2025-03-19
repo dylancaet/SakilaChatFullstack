@@ -3,23 +3,26 @@ const CreateFilm = () =>
 
     function handleSubit(formData: FormData)
     {
-        alert("Submitted");
-    }
+        const title = formData.get('title');
+        const description = formData.get('description');
+        const price = formData.get('price');
 
+        alert(`Submitted\n ${title} \n ${description} \n ${price}`);
+    }
 
     return (
         <>
             <form action={handleSubit} method='POST'>
                 <label>
-                    Title <input type='text' />
+                    Title <input name="title" type='text' required />
                 </label>
 
                 <label>
-                    Description <input type='text' />
+                    Description <input name="description" type='text' required />
                 </label>
 
                 <label>
-                    Price £ <input type='number' placeholder='0.00' step='0.5'/>
+                    Price £ <input name="price" type='number' placeholder='0.00' step='0.5' min='0.00' required/>
                 </label>
 
                 <button type="submit">Create</button>
