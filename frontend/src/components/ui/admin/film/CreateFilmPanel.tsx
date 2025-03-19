@@ -2,7 +2,7 @@ import {useState} from "react";
 import {Film} from "../../../../types/api.ts";
 
 
-const CreateFilm = () =>
+const CreateFilmPanel = () =>
 {
     const [response, setResponse] = useState<Film | undefined>()
 
@@ -51,4 +51,4 @@ const CreateFilm = () =>
     )
 }
 
-export default CreateFilm;
+export default CreateFilmPanel;

@@ -2,7 +2,7 @@ import {Film, PaginatedFilms} from "../../../../types/api.ts";
 import {useEffect, useState} from "react";
 
 
-const ReadFilm = () =>
+const ReadFilmPanel = () =>
 {
     const [films, setFilms] = useState<Film[]>([])
 
@@ -39,4 +39,4 @@ const ReadFilm = () =>
     )
 }
 
-export default ReadFilm
+export default ReadFilmPanel

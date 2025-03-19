@@ -2,7 +2,7 @@ import {useState} from "react";
 import {Film} from "../../../../types/api.ts";
 
 
-const UpdateFilm = () =>
+const UpdateFilmPanel = () =>
 {
     const [response, setResponse] = useState<Film | undefined>()
 
@@ -63,4 +63,4 @@ const UpdateFilm = () =>
     )
 }
 
-export default UpdateFilm;
+export default UpdateFilmPanel;

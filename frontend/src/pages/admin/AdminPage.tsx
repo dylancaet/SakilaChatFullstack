@@ -1,15 +1,15 @@
 import "./AdminPage.css"
-import CreateFilm from "../../components/ui/admin/film/CreateFilm.tsx";
-import ReadFilm from "../../components/ui/admin/film/ReadFilm.tsx";
-import UpdateFilm from "../../components/ui/admin/film/UpdateFilm.tsx";
+import CreateFilmPanel from "../../components/ui/admin/film/CreateFilmPanel.tsx";
+import ReadFilmPanel from "../../components/ui/admin/film/ReadFilmPanel.tsx";
+import UpdateFilmPanel from "../../components/ui/admin/film/UpdateFilmPanel.tsx";
 
 const AdminPage = () =>
 {
     return (
         <>
-            <CreateFilm />
-            <ReadFilm />
-            <UpdateFilm />
+            <CreateFilmPanel />
+            <ReadFilmPanel />
+            <UpdateFilmPanel />
         </>
     )
 }
