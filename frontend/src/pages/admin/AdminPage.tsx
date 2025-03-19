@@ -1,11 +1,13 @@
 import "./AdminPage.css"
-import CreateFilm from "../../components/ui/admin/list/CreateFilm.tsx";
+import CreateFilm from "../../components/ui/admin/film/CreateFilm.tsx";
+import ReadFilm from "../../components/ui/admin/film/ReadFilm.tsx";
 
 const AdminPage = () =>
 {
     return (
         <>
             <CreateFilm />
+            <ReadFilm />
         </>
     )
 }

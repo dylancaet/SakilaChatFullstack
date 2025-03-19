@@ -31,7 +31,7 @@ const CreateFilm = () =>
 
     return (
         <>
-            <form action={handleSubmit} method="POST">
+            <form action={handleSubmit}>
                 <label>
                     Title <input name="title" type="text" required />
                 </label>
