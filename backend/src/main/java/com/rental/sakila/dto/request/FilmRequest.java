@@ -17,6 +17,6 @@ public class FilmRequest
 
     private String description;
 
-    @PositiveOrZero(groups = {RequestValidation.Create.class, RequestValidation.Update.class})
-    private float price;
+    @PositiveOrZero(groups = {RequestValidation.Create.class})
+    private Float price;
 }

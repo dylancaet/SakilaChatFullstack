@@ -53,12 +53,12 @@ public class FilmController
 
     /* PATCH */
     @PatchMapping(Route.API.Film.PATCH_FILM)
-    public FilmResponse updateActor(@Validated(RequestValidation.Update.class) @RequestBody FilmRequest request)
+    public FilmResponse updateFilm(@Validated(RequestValidation.Update.class) @RequestBody FilmRequest request)
     {
         var filmUpdated = service.updateFilm(request.getId(),
                         Optional.ofNullable(request.getTitle()),
                         Optional.ofNullable(request.getDescription()),
-                        Optional.of(request.getPrice()));
+                        Optional.ofNullable(request.getPrice()));
 
         return FilmResponse.from(filmUpdated);
     }
