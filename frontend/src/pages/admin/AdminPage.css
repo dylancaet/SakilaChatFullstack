@@ -1,0 +1,27 @@
+
+.admin-page-container
+{
+    display: flex;
+    flex-direction: row;
+
+    max-height: 100vh;
+    max-width: 100vw;
+    height: 100%;
+    width: 100%;
+
+    padding: 10px;
+}
+
+.admin-page-table-container
+{
+    width: 50%;
+}
+
+.admin-page-panel-container
+{
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
