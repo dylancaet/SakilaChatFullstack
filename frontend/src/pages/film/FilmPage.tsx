@@ -20,7 +20,9 @@ const FilmPage = () =>
                         <h5>A place to chat and discuss sakila films</h5>
                     </div>
 
-                    <FilmCollection/>
+                    <div className="film-page-collection-results-container">
+                        <FilmCollection/>
+                    </div>
                 </div>
             </div>
 
