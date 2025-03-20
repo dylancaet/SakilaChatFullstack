@@ -24,6 +24,7 @@ const ReadFilmPanel = () =>
         <div>
             <button onClick={() => fetchFilms((paginatedFilms?.currentPage ?? 0)-1)} disabled={(paginatedFilms?.currentPage ?? 0) < 1}>Previous</button>
             <button onClick={() => fetchFilms((paginatedFilms?.currentPage ?? 0)+1)} disabled={(paginatedFilms?.currentPage ?? 0) >= (paginatedFilms?.totalPages ?? 1)-1}>Next</button>
+            <button onClick={() => fetchFilms(paginatedFilms?.currentPage ?? 0)}>Refresh</button>
             <table>
                 <thead>
                 <tr>
