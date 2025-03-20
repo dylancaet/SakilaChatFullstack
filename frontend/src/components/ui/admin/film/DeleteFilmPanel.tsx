@@ -1,5 +1,5 @@
 import {useState} from "react";
-
+import "./AdminPanel.css"
 
 const DeleteFilmPanel = () =>
 {
@@ -21,7 +21,8 @@ const DeleteFilmPanel = () =>
         })
     }
     return (
-        <div>
+        <div className="admin-panel-base">
+            <h3>Delete</h3>
             <form action={handleSubmit}>
                 <label>
                     ID <input name="id" type="number" required />

@@ -1,0 +1,17 @@
+
+.admin-panel-base
+{
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+
+    overflow: auto;
+}
+
+.admin-panel-table
+{
+    height: 100%;
+    width: 100%;
+    font-size: small;
+    overflow: auto;
+    table-layout: fixed;
+}

@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {Film} from "../../../../types/api.ts";
 import FilmCard from "../../film/FilmCard.tsx";
+import "./AdminPanel.css";
 
 
 const CreateFilmPanel = () =>
@@ -31,7 +32,8 @@ const CreateFilmPanel = () =>
     }
 
     return (
-        <div>
+        <div className="admin-panel-base">
+            <h3>Create</h3>
             <form action={handleSubmit}>
                 <label>
                     Title <input name="title" type="text" required />
@@ -42,7 +44,7 @@ const CreateFilmPanel = () =>
                 </label>
 
                 <label>
-                    Price £ <input name="price" type="number" placeholder="0.00" step="0.01" required/>
+                    Price £ <input name="price" type="number" placeholder="0.00" step="0.01" min="0.00" required/>
                 </label>
 
                 <button type="submit">Create</button>

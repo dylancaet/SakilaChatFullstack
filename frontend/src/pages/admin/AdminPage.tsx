@@ -8,10 +8,19 @@ const AdminPage = () =>
 {
     return (
         <>
-            <CreateFilmPanel />
-            <ReadFilmPanel />
-            <UpdateFilmPanel />
-            <DeleteFilmPanel />
+            <div className="admin-page-container">
+                <div className="admin-page-table-container">
+                    <ReadFilmPanel />
+                </div>
+                <div className="admin-page-panel-container">
+                    <CreateFilmPanel />
+                    <UpdateFilmPanel />
+                    <DeleteFilmPanel />
+                </div>
+            </div>
+
+            <div className="film-page-halftone"/>
+            <div className="film-page-gradient"/>
         </>
     )
 }
