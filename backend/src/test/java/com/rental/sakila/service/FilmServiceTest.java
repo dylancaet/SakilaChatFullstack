@@ -100,7 +100,7 @@ public class FilmServiceTest
         Optional<Float> newPrice = Optional.of(existingFilm.getPrice() + 5.0f);
 
         Film updatedFilm = new Film(filmId, newTitle.get(), newPrice.get(), newDescription.get(), (byte)0);
-        
+
         doReturn(Optional.of(existingFilm)).when(repository).findById(filmId);
 
         doReturn(updatedFilm).when(repository).save(any(Film.class));

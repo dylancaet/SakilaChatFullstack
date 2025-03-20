@@ -11,8 +11,8 @@
 	<groupId>com.rental.sakila</groupId>
 	<artifactId>sakila</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Sakila Actor Rental Prices</name>
-	<description>A SpringBoot application about Actor Rental Prices for the Saklia dataset</description>
+	<name>Sakila Film Chat</name>
+	<description>A SpringBoot application</description>
 	<url/>
 	<licenses>
 		<license/>
