@@ -1,6 +1,7 @@
 package e2e.film;
 
 import e2e.base.TestBase;
+import e2e.common.CommonSteps;
 import e2e.models.FilmCard;
 import e2e.pages.HomePage;
 import io.cucumber.java.*;
@@ -21,25 +22,9 @@ public class PaginateStepDefinitions
 
     private List<FilmCard> preResults;
 
-    @Before /* =BeforeScenario */
-    public void beforeScenario(Scenario scenario)
+    public PaginateStepDefinitions()
     {
-        this.base = new TestBase(scenario.getName());
-        this.page = new HomePage(base.getDriver());
-
-        base.startSession();
-    }
-
-    @After /* =AfterScenario */
-    public void afterScenario(Scenario scenario)
-    {
-        base.endSession(scenario);
-    }
-
-    @Given("the user is on {string}")
-    public void the_user_is_on_string(String url)
-    {
-        base.gotoURL(url);
+        page = new HomePage(CommonSteps.getDriver());
     }
 
     @When("the user clicks the load more button")
