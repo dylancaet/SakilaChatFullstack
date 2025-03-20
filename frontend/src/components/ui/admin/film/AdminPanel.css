@@ -1,10 +1,9 @@
 
-.admin-panel-base
+.admin-panel-background
 {
     background: rgba(0, 0, 0, 0.8);
+    border: black solid 1px;
     color: white;
-
-    overflow: auto;
 }
 
 .admin-panel-table
@@ -14,4 +13,14 @@
     font-size: small;
     overflow: auto;
     table-layout: fixed;
+}
+
+.admin-panel-operation
+{
+
+}
+
+.admin-panel-form
+{
+
 }

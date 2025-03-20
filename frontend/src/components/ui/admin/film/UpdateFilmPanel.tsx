@@ -39,9 +39,9 @@ const UpdateFilmPanel = () =>
     }
 
     return (
-        <div className="admin-panel-base">
+        <div className="admin-panel-background admin-panel-operation">
             <h3>Update</h3>
-            <form action={handleSubmit}>
+            <form action={handleSubmit} className="admin-panel-form">
                 <label>
                     ID <input name="id" type="number" required />
                 </label>

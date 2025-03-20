@@ -21,7 +21,7 @@ const ReadFilmPanel = () =>
     const filmRows = paginatedFilms === undefined ? null :  paginatedFilms.films.map(f => <tr key={f.id}><td>{f.id}</td><td>{f.title}</td><td>{f.description}</td><td>£ {f.price}</td></tr> )
 
     return (
-        <div className="admin-panel-base admin-panel-table">
+        <div className="admin-panel-background admin-panel-table">
             <button onClick={() => fetchFilms((paginatedFilms?.currentPage ?? 0)-1)} disabled={(paginatedFilms?.currentPage ?? 0) < 1}>Previous</button>
             <button onClick={() => fetchFilms((paginatedFilms?.currentPage ?? 0)+1)} disabled={(paginatedFilms?.currentPage ?? 0) >= (paginatedFilms?.totalPages ?? 1)-1}>Next</button>
             <button onClick={() => fetchFilms(paginatedFilms?.currentPage ?? 0)}>Refresh</button>

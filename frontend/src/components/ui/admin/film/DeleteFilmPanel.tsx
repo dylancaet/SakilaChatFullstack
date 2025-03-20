@@ -21,9 +21,9 @@ const DeleteFilmPanel = () =>
         })
     }
     return (
-        <div className="admin-panel-base">
+        <div className="admin-panel-background">
             <h3>Delete</h3>
-            <form action={handleSubmit}>
+            <form action={handleSubmit} className="admin-panel-form">
                 <label>
                     ID <input name="id" type="number" required />
                 </label>

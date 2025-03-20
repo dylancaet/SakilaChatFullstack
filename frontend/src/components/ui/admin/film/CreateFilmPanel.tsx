@@ -32,9 +32,9 @@ const CreateFilmPanel = () =>
     }
 
     return (
-        <div className="admin-panel-base">
+        <div className="admin-panel-background">
             <h3>Create</h3>
-            <form action={handleSubmit}>
+            <form action={handleSubmit} className="admin-panel-form">
                 <label>
                     Title <input name="title" type="text" required />
                 </label>
