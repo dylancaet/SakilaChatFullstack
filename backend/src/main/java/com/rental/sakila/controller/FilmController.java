@@ -41,6 +41,7 @@ public class FilmController
     }
 
     /* POST */
+    @CrossOrigin
     @PostMapping(Route.API.Film.POST_FILM)
     public FilmResponse createFilm(@Validated(RequestValidation.Create.class) @RequestBody FilmRequest request)
     {
@@ -52,6 +53,7 @@ public class FilmController
     }
 
     /* PATCH */
+    @CrossOrigin
     @PatchMapping(Route.API.Film.PATCH_FILM)
     public FilmResponse updateFilm(@Validated(RequestValidation.Update.class) @RequestBody FilmRequest request)
     {
@@ -64,6 +66,7 @@ public class FilmController
     }
 
     /* DELETE */
+    @CrossOrigin
     @DeleteMapping(Route.API.Film.DELETE_FILM)
     public void deleteFilm(@Validated(RequestValidation.Delete.class) @PathVariable Short id)
     {
