@@ -1,11 +1,7 @@
 package e2e.film;
 
-import e2e.base.TestBase;
-import e2e.common.CommonSteps;
-import e2e.models.FilmCard;
-import e2e.pages.HomePage;
-import io.cucumber.java.*;
-import io.cucumber.java.en.Given;
+import e2e.pom.models.FilmCard;
+import e2e.pom.pages.HomePage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -17,14 +13,13 @@ import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 
 public class PaginateStepDefinitions
 {
-    private TestBase base;
     private HomePage page;
 
     private List<FilmCard> preResults;
 
     public PaginateStepDefinitions()
     {
-        page = new HomePage(CommonSteps.getDriver());
+        page = new HomePage();
     }
 
     @When("the user clicks the load more button")

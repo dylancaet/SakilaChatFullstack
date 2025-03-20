@@ -1,6 +1,7 @@
 package e2e;
 
 import e2e.common.CommonSteps;
+import e2e.driver.DriverManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
@@ -21,6 +22,6 @@ public class RunCucumberTests extends AbstractTestNGCucumberTests
 
     @After
     public static void tearDown(Scenario scenario) {
-        CommonSteps.quitDriver(scenario);
+        DriverManager.quitDriver(scenario);
     }
 }

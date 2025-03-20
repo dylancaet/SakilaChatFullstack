@@ -1,8 +1,6 @@
 package e2e.film;
 
-import e2e.base.TestBase;
-import e2e.common.CommonSteps;
-import e2e.pages.HomePage;
+import e2e.pom.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,7 +15,7 @@ public class SearchStepDefinitions
 
     public SearchStepDefinitions()
     {
-        page = new HomePage(CommonSteps.getDriver());
+        page = new HomePage();
     }
 
 

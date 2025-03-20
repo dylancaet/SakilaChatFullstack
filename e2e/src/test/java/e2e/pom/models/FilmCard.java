@@ -1,4 +1,4 @@
-package e2e.models;
+package e2e.pom.models;
 
 import lombok.Getter;
 import org.openqa.selenium.By;

@@ -1,6 +1,7 @@
-package e2e.pages;
+package e2e.pom.pages;
 
-import e2e.models.FilmCard;
+import e2e.driver.DriverManager;
+import e2e.pom.models.FilmCard;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,9 +27,9 @@ public class HomePage
 
     private List<FilmCard> filmCards;
 
-    public HomePage(WebDriver driver)
+    public HomePage()
     {
-        this.driver = driver;
+        this.driver = DriverManager.getDriver();
         this.filmCards = new ArrayList<FilmCard>();
     }
 
