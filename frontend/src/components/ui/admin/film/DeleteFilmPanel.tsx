@@ -3,6 +3,7 @@ import "./AdminPanel.css"
 
 const DeleteFilmPanel = () =>
 {
+    const [showResponse, setShowResponse] = useState<boolean>(false);
     const [response, setResponse] = useState<boolean>(false)
 
     async function handleSubmit(formData: FormData) {
@@ -19,6 +20,8 @@ const DeleteFilmPanel = () =>
                 setResponse(false)
             }
         })
+
+        setShowResponse(true);
     }
     return (
         <div className="admin-panel-background">
@@ -30,7 +33,7 @@ const DeleteFilmPanel = () =>
 
                 <button type="submit">Delete</button>
             </form>
-            {response === false ? <i>Film NOT deleted!</i> : <i>Film deleted!</i>}
+            {showResponse && (!response ? <i>Film NOT deleted!</i> : <i>Film deleted!</i>)}
         </div>
     )
 }

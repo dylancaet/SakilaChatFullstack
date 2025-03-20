@@ -5,6 +5,7 @@ import "./AdminPanel.css"
 
 const UpdateFilmPanel = () =>
 {
+    const [showResponse, setShowResponse] = useState<boolean>(false);
     const [response, setResponse] = useState<Film | undefined>()
 
     async function handleSubmit(formData: FormData)
@@ -36,6 +37,8 @@ const UpdateFilmPanel = () =>
                 setResponse(undefined)
             }
         })
+
+        setShowResponse(true);
     }
 
     return (
@@ -60,8 +63,8 @@ const UpdateFilmPanel = () =>
 
                 <button type="submit">Update</button>
             </form>
-            {response === undefined ? <i>Film NOT updated!</i> : <i>Film updated!</i>}
             {response && <FilmCard film={response} clickable={true} />}
+            {showResponse && (response === undefined ? <i>Film NOT updated!</i> : <i>Film updated!</i>)}
         </div>
     )
 }
