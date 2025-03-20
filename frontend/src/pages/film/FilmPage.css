@@ -69,6 +69,6 @@
 	top: 0;
 	z-index: -1;
 
-	background: url("./images/halftone_texture.png") no-repeat center center;
+	background: url("/images/halftone_texture.png") no-repeat center center;
 	background-size: cover;
 }
