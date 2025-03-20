@@ -102,6 +102,8 @@
 					<excludes>
 						<exclude>**/dto/**/*.*</exclude>
 						<exclude>**/route/*.*</exclude>
+						<exclude>**/websocket/*.*</exclude>
+						<exclude>**/exception/*.*</exclude>
 					</excludes>
 				</configuration>
 				<executions>

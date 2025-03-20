@@ -4,9 +4,11 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.lang.Nullable;
 
 @Getter
+@Setter
 public class FilmRequest
 {
     @NotNull(groups = {RequestValidation.Update.class, RequestValidation.Delete.class})

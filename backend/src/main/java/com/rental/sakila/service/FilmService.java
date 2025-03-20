@@ -101,7 +101,7 @@ public class FilmService
 
         repository.delete(film);
 
-        log.info(String.format("Actor Deleted: %s", film.getId()));
+        log.info(String.format("Film Deleted: %s", film.getId()));
     }
 
 
