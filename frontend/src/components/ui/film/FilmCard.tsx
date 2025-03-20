@@ -16,7 +16,7 @@ function random(seed: number) {
 const FilmCard = (props: FilmProps) =>
 {
     const [infoVisible, setInfoVisible] = useState(false);
-    const postsers = ["./posters/poster_1.jpg", "./posters/poster_2.jpg", "./posters/poster_3.webp", "./posters/poster_4.png"]
+    const postsers = ["/posters/poster_1.jpg", "/posters/poster_2.jpg", "/posters/poster_3.webp", "/posters/poster_4.png"]
     const poster = postsers[Math.floor(random(props.film.id) * postsers.length)];
 
     const filmCardInfo = infoVisible && props.clickable ? <FilmCardInfo film={props.film} image={poster} /> : null;

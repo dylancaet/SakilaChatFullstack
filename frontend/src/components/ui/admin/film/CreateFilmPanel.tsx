@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {Film} from "../../../../types/api.ts";
+import FilmCard from "../../film/FilmCard.tsx";
 
 
 const CreateFilmPanel = () =>
@@ -9,7 +10,7 @@ const CreateFilmPanel = () =>
     async function handleSubmit(formData: FormData) {
         const title = formData.get('title');
         const description = formData.get('description');
-        const price = formData.get('price');
+        const price = Number(formData.get('price')).toFixed(2);
 
         /* Attempt to create film & handle response */
         fetch(import.meta.env.VITE_SAKILA_API + `/film`, {
@@ -47,6 +48,7 @@ const CreateFilmPanel = () =>
                 <button type="submit">Create</button>
             </form>
             {response === undefined ? <i>Film NOT created!</i> : <i>Film created!</i>}
+            {response && <FilmCard film={response} clickable={false} />}
         </div>
     )
 }
