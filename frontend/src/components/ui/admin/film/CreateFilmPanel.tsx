@@ -48,7 +48,7 @@ const CreateFilmPanel = () =>
                 <button type="submit">Create</button>
             </form>
             {response === undefined ? <i>Film NOT created!</i> : <i>Film created!</i>}
-            {response && <FilmCard film={response} clickable={false} />}
+            {response && <FilmCard film={response} clickable={true} />}
         </div>
     )
 }

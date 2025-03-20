@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {Film} from "../../../../types/api.ts";
+import FilmCard from "../../film/FilmCard.tsx";
 
 
 const UpdateFilmPanel = () =>
@@ -59,6 +60,7 @@ const UpdateFilmPanel = () =>
                 <button type="submit">Update</button>
             </form>
             {response === undefined ? <i>Film NOT updated!</i> : <i>Film updated!</i>}
+            {response && <FilmCard film={response} clickable={true} />}
         </div>
     )
 }
