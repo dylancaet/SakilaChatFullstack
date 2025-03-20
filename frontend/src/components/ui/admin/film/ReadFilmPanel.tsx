@@ -1,4 +1,4 @@
-import {Film, PaginatedFilms} from "../../../../types/api.ts";
+import {PaginatedFilms} from "../../../../types/api.ts";
 import {useEffect, useState} from "react";
 
 
@@ -23,7 +23,7 @@ const ReadFilmPanel = () =>
     return (
         <div>
             <button onClick={() => fetchFilms((paginatedFilms?.currentPage ?? 0)-1)} disabled={(paginatedFilms?.currentPage ?? 0) < 1}>Previous</button>
-            <button onClick={() => fetchFilms((paginatedFilms?.currentPage ?? 0)+1)} disabled={(paginatedFilms?.currentPage ?? 0) >= (paginatedFilms?.totalPages-1 ?? 0)}>Next</button>
+            <button onClick={() => fetchFilms((paginatedFilms?.currentPage ?? 0)+1)} disabled={(paginatedFilms?.currentPage ?? 0) >= (paginatedFilms?.totalPages ?? 1)-1}>Next</button>
             <table>
                 <thead>
                 <tr>
