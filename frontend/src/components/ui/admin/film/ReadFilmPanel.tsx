@@ -4,24 +4,26 @@ import {useEffect, useState} from "react";
 
 const ReadFilmPanel = () =>
 {
-    const [films, setFilms] = useState<Film[]>([])
+    const [paginatedFilms, setPaginatedFilms] = useState<PaginatedFilms>()
 
-    const fetchFilms = () => {
-        fetch(import.meta.env.VITE_SAKILA_API+`/film/list?page=0`)
+    const fetchFilms = (page: number) => {
+        fetch(import.meta.env.VITE_SAKILA_API+`/film/list?page=${page}`)
             .then(res => res.json())
             .then((d: PaginatedFilms) => {
-                setFilms([...films].concat(d.films));
+                setPaginatedFilms(d);
             });
     }
 
     useEffect(() => {
-        fetchFilms();
+        fetchFilms(0);
     }, [])
 
-    const filmRows = films.map(f => <tr key={f.id}><td>{f.id}</td><td>{f.title}</td><td>{f.description}</td><td>£ {f.price}</td></tr> )
+    const filmRows = paginatedFilms === undefined ? null :  paginatedFilms.films.map(f => <tr key={f.id}><td>{f.id}</td><td>{f.title}</td><td>{f.description}</td><td>£ {f.price}</td></tr> )
 
     return (
-        <>
+        <div>
+            <button onClick={() => fetchFilms((paginatedFilms?.currentPage ?? 0)-1)} disabled={(paginatedFilms?.currentPage ?? 0) < 1}>Previous</button>
+            <button onClick={() => fetchFilms((paginatedFilms?.currentPage ?? 0)+1)} disabled={(paginatedFilms?.currentPage ?? 0) >= (paginatedFilms?.totalPages-1 ?? 0)}>Next</button>
             <table>
                 <thead>
                 <tr>
@@ -35,7 +37,7 @@ const ReadFilmPanel = () =>
                 {filmRows}
                 </tbody>
             </table>
-        </>
+        </div>
     )
 }
 

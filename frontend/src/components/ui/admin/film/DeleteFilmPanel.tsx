@@ -9,7 +9,7 @@ const DeleteFilmPanel = () =>
         const id = formData.get("id");
 
         /* Attempt to delete film & handle response */
-        await fetch(import.meta.env.VITE_SAKILA_API + `/film/` + id, {
+        fetch(import.meta.env.VITE_SAKILA_API + `/film/` + id, {
             method: "DELETE",
         }).then(async res => {
             if (res.status === 200) {

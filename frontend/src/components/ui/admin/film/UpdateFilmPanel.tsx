@@ -20,7 +20,7 @@ const UpdateFilmPanel = () =>
             return;
 
         /* Attempt to update film & handle response */
-        await fetch(import.meta.env.VITE_SAKILA_API + `/film`, {
+        fetch(import.meta.env.VITE_SAKILA_API + `/film`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

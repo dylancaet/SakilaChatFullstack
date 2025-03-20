@@ -12,7 +12,7 @@ const CreateFilmPanel = () =>
         const price = formData.get('price');
 
         /* Attempt to create film & handle response */
-        await fetch(import.meta.env.VITE_SAKILA_API + `/film`, {
+        fetch(import.meta.env.VITE_SAKILA_API + `/film`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -30,7 +30,7 @@ const CreateFilmPanel = () =>
     }
 
     return (
-        <>
+        <div>
             <form action={handleSubmit}>
                 <label>
                     Title <input name="title" type="text" required />
@@ -47,7 +47,7 @@ const CreateFilmPanel = () =>
                 <button type="submit">Create</button>
             </form>
             {response === undefined ? <i>Film NOT created!</i> : <i>Film created!</i>}
-        </>
+        </div>
     )
 }
 
