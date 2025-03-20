@@ -14,3 +14,4 @@ Feature: Search for results
 			| "ace"  	 | 15    |
 			| "dinosaur" | 3 	 |
 			| "a" 	     | 50    |
+

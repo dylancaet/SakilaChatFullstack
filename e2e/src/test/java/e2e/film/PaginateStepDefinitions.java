@@ -13,14 +13,9 @@ import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 
 public class PaginateStepDefinitions
 {
-    private HomePage page;
+    private final HomePage page = new HomePage();
 
     private List<FilmCard> preResults;
-
-    public PaginateStepDefinitions()
-    {
-        page = new HomePage();
-    }
 
     @When("the user clicks the load more button")
     public void the_user_clicks_the_load_more_button()
@@ -54,7 +49,6 @@ public class PaginateStepDefinitions
 
 /* Bugs found
     1. After filtering, the Load more button will display when there are no more results
-    2. Chat box will hide the load more button on vertical screens, not rendering the load more button
     3. After filtering, load more will increment paginated page index, UNINTENTIONAL
         3.1. Searching empty string possible, and sends a request for ?title=
     4. At the final pagination the load more button is present, pressing it makes a request, 0 posters are added, and then disappears

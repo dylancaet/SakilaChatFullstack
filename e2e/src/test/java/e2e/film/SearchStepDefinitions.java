@@ -8,16 +8,9 @@ import io.cucumber.java.en.When;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-
 public class SearchStepDefinitions
 {
-    private HomePage page;
-
-    public SearchStepDefinitions()
-    {
-        page = new HomePage();
-    }
-
+    private final HomePage page = new HomePage();
 
     @Given("the user types {string} in the filter")
     public void the_user_types_string_in_the_filter(String filter)
