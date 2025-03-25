@@ -10,5 +10,3 @@ Feature: View more results
 	Scenario: A user can load more items
 		When the user clicks the load more button
 		Then more or the same film cards are displayed
-
-#	Scenario: A user can load more results when filtering
