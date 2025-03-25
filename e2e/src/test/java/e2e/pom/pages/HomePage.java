@@ -35,7 +35,7 @@ public class HomePage
 
     public List<FilmCard> getFilmCards()
     {
-        return driver.findElements(By.className("film-card"))
+        return driver.findElements(filmCardBy)
                     .stream()
                     .map(FilmCard::new)
                     .toList();

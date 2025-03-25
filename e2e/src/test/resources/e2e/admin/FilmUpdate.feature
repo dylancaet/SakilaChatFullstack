@@ -11,8 +11,8 @@ Feature: Update Film Entry
 		Then the film operation response displays "Film updated!"
 		And the updated film card appears
 		Examples:
-			| title 				| description 					| price
-			| An updated test film 	| An updated test description 	| 5.99
+			| title 				| description 					| price |
+			| An updated test film 	| An updated test description 	| 5.99 |
 
 
 	Scenario Outline: Do not update film with invalid form entries
@@ -20,5 +20,5 @@ Feature: Update Film Entry
 		And the user submits the update film form
 		Then the film operation response displays "Film NOT updated!"
 		Examples:
-			| title 						| description 							| price
-			| An invalid updated test film 	| An invalid updated test description 	| -1
+			| title 						| description 							| price |
+			| An invalid updated test film 	| An invalid updated test description 	| -1 |
