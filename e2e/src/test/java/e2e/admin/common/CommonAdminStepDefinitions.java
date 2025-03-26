@@ -28,6 +28,7 @@ public class CommonAdminStepDefinitions
         switch(opType)
         {
             case "UPDATE":
+                page.submitUpdateForm();
                 break;
             case "CREATE":
                 page.submitCreateForm();
@@ -48,6 +49,8 @@ public class CommonAdminStepDefinitions
         switch(opType)
         {
             case "UPDATE":
+                page.waitForUpdateResponse();
+                actualResponse = page.getUpdatedResponse();
                 break;
             case "CREATE":
                 page.waitForCreateResponse();
@@ -69,6 +72,7 @@ public class CommonAdminStepDefinitions
 
         switch(opType){
             case "UPDATE":
+                filmCard = page.getUpdatedFilmCard();
                 break;
             case "CREATE":
                 filmCard = page.getCreatedFilmCard();
