@@ -7,9 +7,9 @@ Feature: Update Film Entry
 
 	Scenario: Update latest film with all form entries
 		When the user enters the latest id, "An updated test film" "An updated test description" 5.99 in the update film form
-		And the user submits the update film form
-		Then the film operation response displays "Film updated!"
-		And the updated film card appears
+		And the user submits the "UPDATE" film form
+		Then the "UPDATE" film operation response displays "Film updated!"
+		And the "UPDATE" film card appears
 #
 #
 #	Scenario Outline: Do not update film with invalid form entries

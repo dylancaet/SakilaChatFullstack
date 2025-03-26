@@ -20,27 +20,4 @@ public class FilmCreateStepDefinitions
         page.enterCreateForm(title, description, price.floatValue());
     }
 
-    @And("the user submits the create film form")
-    public void the_user_submits_the_create_film_form()
-    {
-        page.submitCreateForm();
-    }
-
-    @Then("the film operation response displays {string}")
-    public void the_film_operation_response_displays(String response)
-    {
-        page.waitForCreateResponse();
-
-        final var actualResponse = page.getCreatedResponse();
-
-        assertThat(actualResponse, equalTo(response));
-    }
-
-    @Then("the created film card appears")
-    public void the_created_film_card_appears()
-    {
-        final var filmCard = page.getCreatedFilmCard();
-
-        assertThat(filmCard, notNullValue());
-    }
 }
