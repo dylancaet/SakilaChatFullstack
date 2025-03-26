@@ -33,8 +33,6 @@ public class CommonAdminStepDefinitions
             case "CREATE":
                 page.submitCreateForm();
                 break;
-            case "DELETE":
-                break;
             default:
                 throw new IllegalArgumentException();
         }
@@ -55,8 +53,6 @@ public class CommonAdminStepDefinitions
             case "CREATE":
                 page.waitForCreateResponse();
                 actualResponse = page.getCreatedResponse();
-                break;
-            case "DELETE":
                 break;
             default:
                 throw new IllegalArgumentException();

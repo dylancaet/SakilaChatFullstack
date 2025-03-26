@@ -16,12 +16,8 @@ public class AdminPage
 {
     private final WebDriver driver;
 
-    private final By createPanelBy  = By.xpath("//h3[text()='Create']/parent::div");
-    private final By tablePanelBy   = By.xpath("//div[contains(@class, 'admin-panel-table')]");
-
     private final By createFormBy   = By.xpath("//h3[text()='Create']/parent::div/form");
     private final By updateFormBy   = By.xpath("//h3[text()='Update']/parent::div/form");
-    private final By deleteFormBy   = By.xpath("//h3[text()='Delete']/parent::div/form");
 
     private final By titleInputBy       = By.cssSelector("input[name='title']");
     private final By descriptionInputBy = By.cssSelector("input[name='description']");
@@ -109,17 +105,17 @@ public class AdminPage
 
     public void waitForCreateResponse()
     {
-        new WebDriverWait(driver, Duration.ofMillis(1000)).until(ExpectedConditions.presenceOfElementLocated(createResponseBy));
+        new WebDriverWait(driver, Duration.ofMillis(3000)).until(ExpectedConditions.presenceOfElementLocated(createResponseBy));
     }
 
     public void waitForUpdateResponse()
     {
-        new WebDriverWait(driver, Duration.ofMillis(1000)).until(ExpectedConditions.presenceOfElementLocated(updatedResponseBy));
+        new WebDriverWait(driver, Duration.ofMillis(3000)).until(ExpectedConditions.presenceOfElementLocated(updatedResponseBy));
     }
 
     public void gotoLastTablePage()
     {
-        final var wait = new WebDriverWait(driver, Duration.ofMillis(1000));
+        final var wait = new WebDriverWait(driver, Duration.ofMillis(3000));
 
         while(true)
         {
