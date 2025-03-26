@@ -2,6 +2,7 @@ package com.rental.sakila.service;
 
 import com.rental.sakila.dto.reponse.StoreResponse;
 import com.rental.sakila.entity.Store;
+import com.rental.sakila.exception.ItemNotFoundException;
 import com.rental.sakila.repository.StoreRepository;
 import com.rental.sakila.service.StoreService;
 import com.rental.sakila.data.DataSupplier;
@@ -59,5 +60,17 @@ public class StoreServiceTest
         Assert.assertEquals(expectedStores.size(), actualStores.size());
 
         verify(repository, times(1)).findAll();
+    }
+
+    @Test(expectedExceptions = ItemNotFoundException.class)
+    public void get_invalid_store_throws_exception()
+    {
+        Byte invalidId = -1;
+
+        doReturn(Optional.empty()).when(repository).findById(invalidId);
+
+        service.getStore(invalidId);
+
+        verify(repository, times(1)).findById(invalidId);
     }
 }
