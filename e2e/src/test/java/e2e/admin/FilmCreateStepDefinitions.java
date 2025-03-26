@@ -33,7 +33,7 @@ public class FilmCreateStepDefinitions
 
         final var actualResponse = page.getCreatedResponse();
 
-        assertThat(response, equalTo(actualResponse));
+        assertThat(actualResponse, equalTo(response));
     }
 
     @Then("the created film card appears")

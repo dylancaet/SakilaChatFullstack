@@ -24,8 +24,10 @@ public class AdminPage
     private final By priceInputBy       = By.cssSelector("input[name='price']");
     private final By idInputBy          = By.cssSelector("input[name='id']");
 
-    private final By createdFilmCardBy = By.xpath("//h3[text()='Create']/parent::div//div[@class='film-card']");
-    private final By createResponseBy = By.xpath("//h3[text()='Create']/parent::div/i");
+    private final By createdFilmCardBy  = By.xpath("//h3[text()='Create']/parent::div/div[@class='film-card']");
+    private final By createResponseBy   = By.xpath("//h3[text()='Create']/parent::div/i");
+
+    private final By tableNextButtonBy  = By.xpath("//div[contains(@class, 'admin-panel-table')]/button[text()='Next']");
 
     public AdminPage()
     {
@@ -67,6 +69,21 @@ public class AdminPage
     public void waitForCreateResponse()
     {
         new WebDriverWait(driver, Duration.ofMillis(1000)).until(ExpectedConditions.presenceOfElementLocated(createResponseBy));
+    }
+
+    public void gotoLastTablePage()
+    {
+        final var wait = new WebDriverWait(driver, Duration.ofMillis(1000));
+
+        while(true)
+        {
+            try {
+                wait.until(ExpectedConditions.elementToBeClickable(tableNextButtonBy)).click();
+                System.out.println("clicked next button");
+            } catch (Exception e) {
+                break;
+            }
+        }
     }
 
 }
