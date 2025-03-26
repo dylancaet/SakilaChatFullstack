@@ -3,6 +3,7 @@ package com.rental.sakila.service;
 import com.rental.sakila.data.DataSupplier;
 import com.rental.sakila.entity.Film;
 import com.rental.sakila.entity.Store;
+import com.rental.sakila.exception.ItemNotFoundException;
 import com.rental.sakila.repository.FilmRepository;
 import com.rental.sakila.repository.StoreRepository;
 import org.mockito.InjectMocks;
@@ -130,5 +131,60 @@ public class FilmServiceTest
         Assert.assertEquals(expectedFilmPage.getTotalElements(), actualFilmPage.getTotalElements());
 
         verify(repository, times(1)).findAll(pageable);
+    }
+
+    @Test(expectedExceptions = ItemNotFoundException.class)
+    public void get_invalid_film_throws_exception()
+    {
+        Short invalidId = -1;
+
+        doReturn(Optional.empty()).when(repository).findById(invalidId);
+
+        service.getFilm(invalidId);
+
+        verify(repository, times(1)).findById(invalidId);
+    }
+
+    @Test(expectedExceptions = ItemNotFoundException.class)
+    public void delete_invalid_film_throws_exception()
+    {
+        Short invalidId = -1;
+
+        doReturn(Optional.empty()).when(repository).findById(invalidId);
+
+        service.deleteFilm(invalidId);
+
+        verify(repository, times(1)).findById(invalidId);
+    }
+
+    @Test(expectedExceptions = ItemNotFoundException.class)
+    public void update_invalid_film_throws_exception()
+    {
+        Short invalidId = -1;
+
+        doReturn(Optional.empty()).when(repository).findById(invalidId);
+
+        service.updateFilm(invalidId, null, null, null);
+
+        verify(repository, times(1)).findById(invalidId);
+    }
+
+    @Test
+    public void find_films_by_title()
+    {
+        int pageNumber = 0;
+        String searchTitle = "Test Film";
+        Optional<String> title = Optional.of(searchTitle);
+
+        List<Film> filmList = List.of(new Film((short)1, "Test Film", 10.0f, "Desc", (byte)0));
+        Page<Film> filmPage = new PageImpl<>(filmList);
+
+        doReturn(filmPage).when(repository).findByTitleContainingIgnoreCase(eq(searchTitle), any(Pageable.class));
+
+        Page<Film> result = service.getFilmList(pageNumber, title);
+
+        Assert.assertEquals(result.getTotalElements(), filmList.size());
+
+        verify(repository, times(1)).findByTitleContainingIgnoreCase(eq(searchTitle), any(Pageable.class));
     }
 }
