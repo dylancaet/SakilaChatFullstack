@@ -125,7 +125,6 @@ public class AdminPage
         {
             try {
                 wait.until(ExpectedConditions.elementToBeClickable(tableNextButtonBy)).click();
-                System.out.println("clicked next button");
             } catch (Exception e) {
                 break;
             }
