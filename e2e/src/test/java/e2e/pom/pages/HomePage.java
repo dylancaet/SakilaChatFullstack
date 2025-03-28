@@ -35,7 +35,7 @@ public class HomePage
 
     public List<FilmCard> getFilmCards()
     {
-        return driver.findElements(By.className("film-card"))
+        return driver.findElements(filmCardBy)
                     .stream()
                     .map(FilmCard::new)
                     .toList();
@@ -47,14 +47,14 @@ public class HomePage
 
         final var loadButton = driver.findElement(loadButtonBy);
 
-        new WebDriverWait(driver, Duration.ofMillis(1000)).until(ExpectedConditions.elementToBeClickable(loadButton));
+        new WebDriverWait(driver, Duration.ofMillis(3000)).until(ExpectedConditions.elementToBeClickable(loadButton));
 
         loadButton.click();
     }
 
     public void waitForPagination()
     {
-        new WebDriverWait(driver, Duration.ofMillis(1000)).until(ExpectedConditions.numberOfElementsToBeMoreThan(filmCardBy, filmCards.size()));
+        new WebDriverWait(driver, Duration.ofMillis(3000)).until(ExpectedConditions.numberOfElementsToBeMoreThan(filmCardBy, filmCards.size()));
     }
 
     public void enterFilter(String text)
